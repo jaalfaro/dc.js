@@ -73,8 +73,8 @@
     var numberFormat = d3.format(".2f");
 
     var usChart = dc.geoChoroplethChart("#us-chart");
-    var industryChart = dc.bubbleChart("#industry-chart");
-    var roundChart = dc.lineChart("#round-chart");
+    //var industryChart = dc.bubbleChart("#industry-chart");
+    //var roundChart = dc.lineChart("#round-chart");
 
     d3.csv("disasters.csv", function (csv) {
         var data = crossfilter(csv);
@@ -141,85 +141,85 @@
                         return "State: " + d.key + "\nTotal Declared Disasteres: " + d.value;
                     });
 
-            industryChart.width(990)
-                    .height(200)
-                    .margins({top: 10, right: 50, bottom: 30, left: 60})
-                    .dimension(industries)
-                    .group(statsByIndustries)
-                    .colors(d3.scale.category10())
-                    .keyAccessor(function (p) {
-                        return p.value.amountRaised;
-                    })
-                    .valueAccessor(function (p) {
-                        return p.value.deals;
-                    })
-                    .radiusValueAccessor(function (p) {
-                        return p.value.amountRaised;
-                    })
-                    .x(d3.scale.linear().domain([0, 5000]))
-                    .r(d3.scale.linear().domain([0, 4000]))
-                    .minRadiusWithLabel(15)
-                    .elasticY(true)
-                    .yAxisPadding(100)
-                    .elasticX(true)
-                    .xAxisPadding(200)
-                    .maxBubbleRelativeSize(0.07)
-                    .renderHorizontalGridLines(true)
-                    .renderVerticalGridLines(true)
-                    .renderLabel(true)
-                    .renderTitle(true)
-                    .title(function (p) {
-                        return p.key
-                                + "\n"
-                                + "Amount Raised: " + numberFormat(p.value.amountRaised) + "M\n"
-                                + "Number of Deals: " + numberFormat(p.value.deals);
-                    });
-            industryChart.yAxis().tickFormat(function (s) {
-                return s + " deals";
-            });
-            industryChart.xAxis().tickFormat(function (s) {
-                return s + "M";
-            });
-
-            roundChart.width(990)
-                    .height(200)
-                    .margins({top: 10, right: 50, bottom: 30, left: 60})
-                    .dimension(rounds)
-                    .group(statsByRounds)
-                    .colors(d3.scale.category10())
-                    .keyAccessor(function (p) {
-                        return p.value.amountRaised;
-                    })
-                    .valueAccessor(function (p) {
-                        return p.value.deals;
-                    })
-                    .radiusValueAccessor(function (p) {
-                        return p.value.amountRaised;
-                    })
-                    .x(d3.scale.linear().domain([0, 5000]))
-                    .r(d3.scale.linear().domain([0, 9000]))
-                    .minRadiusWithLabel(15)
-                    .elasticY(true)
-                    .yAxisPadding(150)
-                    .elasticX(true)
-                    .xAxisPadding(300)
-                    .maxBubbleRelativeSize(0.07)
-                    .renderHorizontalGridLines(true)
-                    .renderVerticalGridLines(true)
-                    .renderLabel(true)
-                    .renderTitle(true)
-                    .title(function (p) {
-                        return p.key
-                                + "\n"
-                                + "Amount Raised: " + numberFormat(p.value.amountRaised) + "M\n"
-                                + "Number of Deals: " + numberFormat(p.value.deals);
-                    });
-            roundChart.yAxis().tickFormat(function (s) {
-                return s + " deals";
-            });
-            roundChart.xAxis().tickFormat(function (s) {
-                return s + "M";
-            });
+//            industryChart.width(990)
+//                    .height(200)
+//                    .margins({top: 10, right: 50, bottom: 30, left: 60})
+//                    .dimension(industries)
+//                    .group(statsByIndustries)
+//                    .colors(d3.scale.category10())
+//                    .keyAccessor(function (p) {
+//                        return p.value.amountRaised;
+//                    })
+//                    .valueAccessor(function (p) {
+//                        return p.value.deals;
+//                    })
+//                    .radiusValueAccessor(function (p) {
+//                        return p.value.amountRaised;
+//                    })
+//                    .x(d3.scale.linear().domain([0, 5000]))
+//                    .r(d3.scale.linear().domain([0, 4000]))
+//                    .minRadiusWithLabel(15)
+//                    .elasticY(true)
+//                    .yAxisPadding(100)
+//                    .elasticX(true)
+//                    .xAxisPadding(200)
+//                    .maxBubbleRelativeSize(0.07)
+//                    .renderHorizontalGridLines(true)
+//                    .renderVerticalGridLines(true)
+//                    .renderLabel(true)
+//                    .renderTitle(true)
+//                    .title(function (p) {
+//                        return p.key
+//                                + "\n"
+//                                + "Amount Raised: " + numberFormat(p.value.amountRaised) + "M\n"
+//                                + "Number of Deals: " + numberFormat(p.value.deals);
+//                    });
+//            industryChart.yAxis().tickFormat(function (s) {
+//                return s + " deals";
+//            });
+//            industryChart.xAxis().tickFormat(function (s) {
+//                return s + "M";
+//            });
+//
+//            roundChart.width(990)
+//                    .height(200)
+//                    .margins({top: 10, right: 50, bottom: 30, left: 60})
+//                    .dimension(rounds)
+//                    .group(statsByRounds)
+//                    .colors(d3.scale.category10())
+//                    .keyAccessor(function (p) {
+//                        return p.value.amountRaised;
+//                    })
+//                    .valueAccessor(function (p) {
+//                        return p.value.deals;
+//                    })
+//                    .radiusValueAccessor(function (p) {
+//                        return p.value.amountRaised;
+//                    })
+//                    .x(d3.scale.linear().domain([0, 5000]))
+//                    .r(d3.scale.linear().domain([0, 9000]))
+//                    .minRadiusWithLabel(15)
+//                    .elasticY(true)
+//                    .yAxisPadding(150)
+//                    .elasticX(true)
+//                    .xAxisPadding(300)
+//                    .maxBubbleRelativeSize(0.07)
+//                    .renderHorizontalGridLines(true)
+//                    .renderVerticalGridLines(true)
+//                    .renderLabel(true)
+//                    .renderTitle(true)
+//                    .title(function (p) {
+//                        return p.key
+//                                + "\n"
+//                                + "Amount Raised: " + numberFormat(p.value.amountRaised) + "M\n"
+//                                + "Number of Deals: " + numberFormat(p.value.deals);
+//                    });
+//            roundChart.yAxis().tickFormat(function (s) {
+//                return s + " deals";
+//            });
+//            roundChart.xAxis().tickFormat(function (s) {
+//                return s + "M";
+//            });
 
             dc.renderAll();
         });
